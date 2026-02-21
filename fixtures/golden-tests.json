@@ -1,0 +1,168 @@
+[
+  {
+    "id": "sc-001",
+    "category": "sbom_retrieval",
+    "tool": "get_sbom_standard",
+    "input": { "standard_id": "SPDX-2.3-001" },
+    "assertions": {
+      "not_empty": true,
+      "text_contains": ["SPDX"],
+      "fields_present": ["id", "format", "field_name", "description"]
+    }
+  },
+  {
+    "id": "sc-002",
+    "category": "sbom_retrieval",
+    "tool": "get_sbom_standard",
+    "input": { "standard_id": "CDX-1.6-001" },
+    "assertions": {
+      "not_empty": true,
+      "text_contains": ["CycloneDX"],
+      "fields_present": ["id", "format", "field_name", "description"]
+    }
+  },
+  {
+    "id": "sc-003",
+    "category": "sbom_search",
+    "tool": "search_sbom_fields",
+    "input": { "query": "license" },
+    "assertions": {
+      "not_empty": true,
+      "min_results": 1
+    }
+  },
+  {
+    "id": "sc-004",
+    "category": "sbom_comparison",
+    "tool": "compare_sbom_formats",
+    "input": { "category": "Document Creation Information" },
+    "assertions": {
+      "not_empty": true,
+      "fields_present": ["spdx", "cyclonedx", "category"]
+    }
+  },
+  {
+    "id": "sc-005",
+    "category": "slsa_retrieval",
+    "tool": "get_slsa_level",
+    "input": { "requirement_id": "L2.hosted-build" },
+    "assertions": {
+      "not_empty": true,
+      "text_contains": ["hosted", "build"],
+      "fields_present": ["id", "level", "requirement_id", "title", "description"]
+    }
+  },
+  {
+    "id": "sc-006",
+    "category": "slsa_search",
+    "tool": "search_slsa_requirements",
+    "input": { "query": "provenance" },
+    "assertions": {
+      "not_empty": true,
+      "min_results": 1
+    }
+  },
+  {
+    "id": "sc-007",
+    "category": "regulation_retrieval",
+    "tool": "get_supply_chain_regulation",
+    "input": { "regulation_id": "CRA-ART-001" },
+    "assertions": {
+      "not_empty": true,
+      "text_contains": ["Cyber Resilience Act"],
+      "fields_present": ["id", "regulation", "title", "description", "requirements"]
+    }
+  },
+  {
+    "id": "sc-008",
+    "category": "regulation_compliance",
+    "tool": "check_cra_compliance",
+    "input": {},
+    "assertions": {
+      "not_empty": true,
+      "fields_present": ["total_articles", "articles", "essential_requirements"]
+    }
+  },
+  {
+    "id": "sc-009",
+    "category": "regulation_mapping",
+    "tool": "map_eo14028",
+    "input": { "include_ssdf": true },
+    "assertions": {
+      "not_empty": true,
+      "fields_present": ["eo_sections", "ssdf_crosswalk", "total_sections"]
+    }
+  },
+  {
+    "id": "sc-010",
+    "category": "attack_retrieval",
+    "tool": "get_supply_chain_attack",
+    "input": { "attack_id": "SCA-DEP-001" },
+    "assertions": {
+      "not_empty": true,
+      "text_contains": ["dependency"],
+      "fields_present": ["id", "attack_name", "attack_vector", "mitre_attack_id", "detection_methods", "mitigations"]
+    }
+  },
+  {
+    "id": "sc-011",
+    "category": "attack_search",
+    "tool": "search_attack_patterns",
+    "input": { "query": "dependency confusion" },
+    "assertions": {
+      "not_empty": true,
+      "min_results": 1
+    }
+  },
+  {
+    "id": "sc-012",
+    "category": "composition_risk",
+    "tool": "assess_composition_risk",
+    "input": {},
+    "assertions": {
+      "not_empty": true,
+      "fields_present": ["risk_types", "total_risks"]
+    }
+  },
+  {
+    "id": "sc-013",
+    "category": "signing_retrieval",
+    "tool": "get_signing_pattern",
+    "input": { "pattern_id": "SIGN-SIG-001" },
+    "assertions": {
+      "not_empty": true,
+      "text_contains": ["Cosign"],
+      "fields_present": ["id", "tool_name", "description", "verification_steps", "integration_patterns"]
+    }
+  },
+  {
+    "id": "sc-014",
+    "category": "signing_search",
+    "tool": "search_verification_methods",
+    "input": { "query": "cosign" },
+    "assertions": {
+      "not_empty": true,
+      "min_results": 1
+    }
+  },
+  {
+    "id": "sc-015",
+    "category": "negative_test",
+    "tool": "get_sbom_standard",
+    "input": { "standard_id": "NONEXISTENT-999" },
+    "assertions": {
+      "handles_gracefully": true,
+      "result_null_or_empty": true
+    }
+  },
+  {
+    "id": "sc-016",
+    "category": "negative_test",
+    "tool": "get_supply_chain_attack",
+    "input": { "attack_id": "NONEXISTENT-000" },
+    "assertions": {
+      "handles_gracefully": true,
+      "result_null_or_empty": true
+    }
+  }
+]

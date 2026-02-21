@@ -1,0 +1,58 @@
+[
+  {
+    "id": "drift-spdx-spec",
+    "description": "SPDX 2.3 specification page",
+    "upstream_url": "https://spdx.github.io/spdx-spec/v2.3/",
+    "selector_hint": "SPDX specification version 2.3",
+    "expected_sha256": "COMPUTE_ON_FIRST_INGEST",
+    "expected_snippet": "Software Package Data Exchange"
+  },
+  {
+    "id": "drift-cyclonedx-spec",
+    "description": "CycloneDX 1.6 specification page",
+    "upstream_url": "https://cyclonedx.org/specification/overview/",
+    "selector_hint": "CycloneDX specification overview",
+    "expected_sha256": "COMPUTE_ON_FIRST_INGEST",
+    "expected_snippet": "CycloneDX"
+  },
+  {
+    "id": "drift-slsa-spec",
+    "description": "SLSA specification levels page",
+    "upstream_url": "https://slsa.dev/spec/v1.0/levels",
+    "selector_hint": "SLSA specification v1.0 levels",
+    "expected_sha256": "COMPUTE_ON_FIRST_INGEST",
+    "expected_snippet": "Supply chain Levels for Software Artifacts"
+  },
+  {
+    "id": "drift-eu-cra",
+    "description": "EU Cyber Resilience Act on EUR-Lex",
+    "upstream_url": "https://eur-lex.europa.eu/eli/reg/2024/2847/oj",
+    "selector_hint": "Regulation (EU) 2024/2847 Cyber Resilience Act",
+    "expected_sha256": "COMPUTE_ON_FIRST_INGEST",
+    "expected_snippet": "products with digital elements"
+  },
+  {
+    "id": "drift-nist-ssdf",
+    "description": "NIST Secure Software Development Framework SP 800-218",
+    "upstream_url": "https://csrc.nist.gov/pubs/sp/800/218/final",
+    "selector_hint": "NIST SP 800-218 SSDF",
+    "expected_sha256": "COMPUTE_ON_FIRST_INGEST",
+    "expected_snippet": "Secure Software Development Framework"
+  },
+  {
+    "id": "drift-mitre-t1195",
+    "description": "MITRE ATT&CK T1195 Supply Chain Compromise",
+    "upstream_url": "https://attack.mitre.org/techniques/T1195/",
+    "selector_hint": "T1195 Supply Chain Compromise technique",
+    "expected_sha256": "COMPUTE_ON_FIRST_INGEST",
+    "expected_snippet": "Supply Chain Compromise"
+  },
+  {
+    "id": "drift-openssf-scorecard",
+    "description": "OpenSSF Scorecard project page",
+    "upstream_url": "https://securityscorecards.dev/",
+    "selector_hint": "OpenSSF Scorecard project overview",
+    "expected_sha256": "COMPUTE_ON_FIRST_INGEST",
+    "expected_snippet": "Scorecard"
+  }
+]
