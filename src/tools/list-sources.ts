@@ -16,7 +16,7 @@ interface SourceEntry {
 }
 
 export function listSources(): ToolResponse<SourceEntry[]> {
-  const sourcesPath = join(__dirname, '..', '..', 'sources.yml');
+  const sourcesPath = join(__dirname, '..', '..', '..', 'sources.yml');
   const raw = readFileSync(sourcesPath, 'utf-8');
 
   // Simple YAML parsing for our known flat structure
