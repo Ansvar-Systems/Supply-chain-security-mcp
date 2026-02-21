@@ -1,0 +1,43 @@
+name: Check Source Updates
+
+on:
+  schedule:
+    - cron: '0 8 1 * *' # Monthly, 1st day at 08:00 UTC
+  workflow_dispatch:
+
+permissions:
+  issues: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check SPDX spec
+        run: |
+          echo "Checking SPDX specification..."
+          curl -sf https://spdx.github.io/spdx-spec/v2.3/ > /dev/null && echo "SPDX spec: reachable" || echo "SPDX spec: unreachable"
+      - name: Check CycloneDX spec
+        run: |
+          echo "Checking CycloneDX specification..."
+          curl -sf https://cyclonedx.org/specification/overview/ > /dev/null && echo "CycloneDX spec: reachable" || echo "CycloneDX spec: unreachable"
+      - name: Check SLSA spec
+        run: |
+          echo "Checking SLSA specification..."
+          curl -sf https://slsa.dev/spec/v1.0/ > /dev/null && echo "SLSA spec: reachable" || echo "SLSA spec: unreachable"
+      - name: Check EU CRA
+        run: |
+          echo "Checking EU Cyber Resilience Act..."
+          curl -sf https://eur-lex.europa.eu/eli/reg/2024/2847/oj > /dev/null && echo "EU CRA: reachable" || echo "EU CRA: unreachable"
+      - name: Check NIST SSDF
+        run: |
+          echo "Checking NIST Secure Software Development Framework..."
+          curl -sf https://csrc.nist.gov/projects/ssdf > /dev/null && echo "NIST SSDF: reachable" || echo "NIST SSDF: unreachable"
+      - name: Check MITRE ATT&CK T1195
+        run: |
+          echo "Checking MITRE ATT&CK Supply Chain Compromise..."
+          curl -sf https://attack.mitre.org/techniques/T1195/ > /dev/null && echo "MITRE ATT&CK T1195: reachable" || echo "MITRE ATT&CK T1195: unreachable"
+      - name: Check OpenSSF Scorecard
+        run: |
+          echo "Checking OpenSSF Scorecard..."
+          curl -sf https://github.com/ossf/scorecard > /dev/null && echo "OpenSSF Scorecard: reachable" || echo "OpenSSF Scorecard: unreachable"
