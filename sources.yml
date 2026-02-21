@@ -1,0 +1,42 @@
+sources:
+  - name: SPDX Specification (Linux Foundation)
+    url: https://spdx.github.io/spdx-spec/v2.3/
+    type: github_markdown
+    licence: Creative Commons Attribution 3.0 (CC-BY-3.0)
+    update_frequency: quarterly
+
+  - name: CycloneDX Specification (OWASP)
+    url: https://cyclonedx.org/docs/latest/
+    type: github_json_schema
+    licence: Apache-2.0
+    update_frequency: quarterly
+
+  - name: SLSA Framework (OpenSSF)
+    url: https://slsa.dev/spec/v1.0/
+    type: github_markdown
+    licence: Apache-2.0
+    update_frequency: quarterly
+
+  - name: EU Cyber Resilience Act
+    url: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32024R2847
+    type: eurlex_html
+    licence: EU public access (reuse permitted under EU legal framework)
+    update_frequency: monthly
+
+  - name: US Executive Order 14028 + NIST SSDF (SP 800-218)
+    url: https://csrc.nist.gov/projects/ssdf
+    type: nist_html
+    licence: US Government public domain
+    update_frequency: quarterly
+
+  - name: MITRE ATT&CK Supply Chain Techniques
+    url: https://attack.mitre.org/techniques/T1195/
+    type: stix_2_1
+    licence: Apache-2.0
+    update_frequency: weekly
+
+  - name: OpenSSF Scorecards / Best Practices
+    url: https://github.com/ossf/scorecard
+    type: github_json
+    licence: Apache-2.0
+    update_frequency: monthly

@@ -1,0 +1,20 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "eu.ansvar/supply-chain-security-mcp",
+  "description": "Software supply chain risk intelligence: SBOM standards (SPDX 2.3/3.0, CycloneDX 1.5/1.6), SLSA framework levels 1-4, EU Cyber Resilience Act, US EO 14028, NIST SSDF (SP 800-218), MITRE ATT&CK supply chain techniques, artifact signing patterns (Sigstore, in-toto, Notary v2), and software composition risk assessment",
+  "repository": {
+    "url": "https://github.com/Ansvar-Systems/Supply-chain-security-mcp",
+    "source": "github"
+  },
+  "homepage": "https://ansvar.eu",
+  "version": "1.0.0",
+  "license": "Apache-2.0",
+  "packages": [
+    {
+      "registryType": "npm",
+      "identifier": "@ansvar/supply-chain-security-mcp",
+      "version": "1.0.0",
+      "transport": { "type": "stdio" }
+    }
+  ]
+}
