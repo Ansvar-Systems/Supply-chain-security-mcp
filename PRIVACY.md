@@ -2,35 +2,30 @@
 
 ## Data Collection
 
-**This MCP server collects no data.**
+The Supply Chain Security MCP **does not collect, store, or transmit any user data**. It operates as a read-only database query tool. No telemetry, analytics, or usage tracking is built into this software.
 
-- No user data is stored
-- No telemetry is sent
-- No tracking or analytics
-- No cookies or session data
-- No network calls at runtime
+## Deployment Modes
 
-## Architecture
+### Local npm (stdio) — Most Private
 
-This MCP server is a **read-only knowledge base**. It serves pre-built data from a local SQLite database. No user queries, inputs, or interactions are logged or persisted by the MCP server itself.
+When installed via `npm install @ansvar/supply-chain-security-mcp` and run locally, all queries stay on your machine. No network requests are made. The database is bundled in the package.
 
-## Data Sources
+### HTTP Server (Vercel / VM Docker)
 
-All data in this knowledge base is sourced from **publicly available** Supply Chain Security government and legislative publications.
+When deployed as an HTTP endpoint, your queries are sent over the network to the server. The server does not log or persist query content, but infrastructure providers may collect standard request metadata (IP addresses, timestamps, request sizes).
 
-## Host Environment
+## Third-Party Data Processing
 
-When this MCP server runs inside a host application (Claude Desktop, Cursor, VS Code, etc.), the **host application's** privacy policy governs how your interactions are processed. This MCP server itself has no visibility into or control over the host's data practices.
+When using this MCP through a client application:
 
-## npm Package
+- **Anthropic** may process your queries per [Anthropic's Privacy Policy](https://www.anthropic.com/privacy)
+- **Vercel** (if hosted there) may collect request data per [Vercel's Privacy Policy](https://vercel.com/legal/privacy-policy)
 
-The published npm package contains only:
-- Static SQLite database (legislation text)
-- Server code (TypeScript/JavaScript)
-- Configuration files
+## Recommendations
 
-No user data is included in or collected by the package.
+- Do not include proprietary SBOM data, internal dependency lists, or confidential software inventory details in queries to hosted endpoints.
+- For maximum privacy, run the MCP locally via npm stdio mode.
 
-## Contact
+---
 
-For privacy questions about this MCP server: [Ansvar Systems](https://ansvar.eu)
+Last Updated: 2026-03-04
