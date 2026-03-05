@@ -1,34 +1,34 @@
 # Disclaimer
 
-## Not Legal Advice
+## Not Professional Security Advice
 
-This MCP server provides reference information about Supply Chain Security legislation. **Nothing in this server constitutes legal, regulatory, or compliance advice.**
+The Supply Chain Security MCP provides reference information about software supply chain security standards, regulations, and attack patterns. It is **not** a substitute for professional security advice, legal counsel, or official compliance guidance.
 
-The information is compiled from publicly available official sources. It may be incomplete, outdated, or inaccurate. Legislation is amended regularly, and the data in this server is a point-in-time snapshot.
+## Accuracy of Standards and Regulations
 
-## No Substitute for Professional Guidance
+All standards and regulations are summarized from their official sources. While we aim for accuracy, always verify against the authoritative source:
 
-Before making legal or compliance decisions based on information from this server:
+- **SPDX:** [spdx.dev](https://spdx.dev)
+- **CycloneDX:** [cyclonedx.org](https://cyclonedx.org)
+- **SLSA:** [slsa.dev](https://slsa.dev)
+- **OpenSSF:** [openssf.org](https://openssf.org)
+- **EU Cyber Resilience Act:** [EUR-Lex / Official Journal of the EU](https://eur-lex.europa.eu)
+- **US Executive Order 14028:** [whitehouse.gov](https://www.whitehouse.gov)
+- **NIST SSDF (SP 800-218):** [nist.gov](https://csrc.nist.gov)
+- **MITRE ATT&CK:** [attack.mitre.org](https://attack.mitre.org)
 
-1. **Consult the official government gazette** or legislative portal
-2. **Engage qualified legal counsel** with jurisdiction-specific expertise
-3. **Verify current legislation status** directly with official sources
+## Attack Patterns — Defensive Use Only
+
+Supply chain attack pattern data is provided strictly for **defensive purposes**: threat modeling, risk assessment, and security architecture review. This data must not be used for offensive operations or malicious activity.
+
+## CRA Compliance Tool
+
+The `check_cra_compliance` tool provides an informational overview of EU Cyber Resilience Act requirements. It is **not** authoritative EU guidance and does not constitute a compliance certification. Organizations subject to the CRA should engage qualified legal and compliance professionals.
 
 ## No Warranty
 
-THE SOFTWARE AND DATA ARE PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NONINFRINGEMENT.
+This software is provided "AS IS" without warranty of any kind, express or implied, as described in the [Apache License 2.0](LICENSE). The authors and contributors accept no liability for decisions made based on data provided by this tool.
 
-IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT, OR OTHERWISE, ARISING FROM, OUT OF, OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+---
 
-## Limitation of Liability
-
-The authors, contributors, and Ansvar Systems accept no liability for:
-
-- Errors, omissions, or inaccuracies in the legislative data
-- Decisions made based on information from this server
-- Financial, legal, or other losses arising from use of this software
-- Changes in legislation not yet reflected in the database
-
-## Open Source
-
-This project is open source under the Apache License 2.0. See [LICENSE](LICENSE) for details.
+Last Updated: 2026-03-04
