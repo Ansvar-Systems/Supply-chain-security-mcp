@@ -50,6 +50,33 @@ npm install @ansvar/supply-chain-security-mcp
 
 ---
 
+
+### Public Endpoint (Streamable HTTP)
+
+Connect from any MCP client (Claude Desktop, ChatGPT, Cursor, VS Code, GitHub Copilot):
+
+```
+https://mcp.ansvar.eu/supply-chain-security/mcp
+```
+
+**Claude Code:**
+```bash
+claude mcp add supply-chain-security --transport http https://mcp.ansvar.eu/supply-chain-security/mcp
+```
+
+**Claude Desktop / Cursor** (`claude_desktop_config.json`):
+```json
+{
+  "mcpServers": {
+    "supply-chain-security": {
+      "type": "url",
+      "url": "https://mcp.ansvar.eu/supply-chain-security/mcp"
+    }
+  }
+}
+```
+
+No authentication required. See [all Ansvar MCP endpoints](https://github.com/Ansvar-Systems/Ansvar-Architecture-Documentation/blob/main/docs/mcp-remote-access.md).
 ## What's in this MCP
 
 ### 50 SBOM Standard Fields
