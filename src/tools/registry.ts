@@ -2,6 +2,7 @@ import { Server } from '@modelcontextprotocol/sdk/server/index.js';
 import { ListToolsRequestSchema, CallToolRequestSchema } from '@modelcontextprotocol/sdk/types.js';
 import type { Db } from '../constants.js';
 
+import { buildCitation } from '../citation.js';
 import { getSbomStandard } from './get-sbom-standard.js';
 import { searchSbomFields } from './search-sbom-fields.js';
 import { compareSbomFormats } from './compare-sbom-formats.js';
@@ -264,9 +265,23 @@ export function registerTools(server: Server, db: Db): void {
       let response;
       switch (name) {
         // SBOM Standards
-        case 'get_sbom_standard':
-          response = getSbomStandard(db, args as { standard_id: string });
+        case 'get_sbom_standard': {
+          const sbomResult = getSbomStandard(db, args as { standard_id: string });
+          if (sbomResult.results) {
+            response = {
+              ...sbomResult,
+              _citation: buildCitation(
+                sbomResult.results.id,
+                `${sbomResult.results.format} ${sbomResult.results.field_name}`,
+                'get_sbom_standard',
+                { standard_id: sbomResult.results.id },
+              ),
+            };
+          } else {
+            response = sbomResult;
+          }
           break;
+        }
         case 'search_sbom_fields':
           response = searchSbomFields(db, args as { query: string; format?: string });
           break;
@@ -275,9 +290,23 @@ export function registerTools(server: Server, db: Db): void {
           break;
 
         // SLSA Framework
-        case 'get_slsa_level':
-          response = getSlsaLevel(db, args as { requirement_id: string });
+        case 'get_slsa_level': {
+          const slsaResult = getSlsaLevel(db, args as { requirement_id: string });
+          if (slsaResult.results) {
+            response = {
+              ...slsaResult,
+              _citation: buildCitation(
+                slsaResult.results.requirement_id,
+                `SLSA L${slsaResult.results.level}: ${slsaResult.results.title}`,
+                'get_slsa_level',
+                { requirement_id: slsaResult.results.requirement_id },
+              ),
+            };
+          } else {
+            response = slsaResult;
+          }
           break;
+        }
         case 'search_slsa_requirements':
           response = searchSlsaRequirements(db, args as { query: string; level?: number });
           break;
@@ -286,9 +315,23 @@ export function registerTools(server: Server, db: Db): void {
           break;
 
         // Regulations
-        case 'get_supply_chain_regulation':
-          response = getSupplyChainRegulation(db, args as { regulation_id: string });
+        case 'get_supply_chain_regulation': {
+          const regResult = getSupplyChainRegulation(db, args as { regulation_id: string });
+          if (regResult.results) {
+            response = {
+              ...regResult,
+              _citation: buildCitation(
+                regResult.results.id,
+                `${regResult.results.regulation} ${regResult.results.article_or_section}: ${regResult.results.title}`,
+                'get_supply_chain_regulation',
+                { regulation_id: regResult.results.id },
+              ),
+            };
+          } else {
+            response = regResult;
+          }
           break;
+        }
         case 'check_cra_compliance':
           response = checkCraCompliance(db, args as { article?: string });
           break;
@@ -297,9 +340,23 @@ export function registerTools(server: Server, db: Db): void {
           break;
 
         // Threat Intelligence
-        case 'get_supply_chain_attack':
-          response = getSupplyChainAttack(db, args as { attack_id: string });
+        case 'get_supply_chain_attack': {
+          const atkResult = getSupplyChainAttack(db, args as { attack_id: string });
+          if (atkResult.results) {
+            response = {
+              ...atkResult,
+              _citation: buildCitation(
+                atkResult.results.id,
+                `${atkResult.results.attack_name}`,
+                'get_supply_chain_attack',
+                { attack_id: atkResult.results.id },
+              ),
+            };
+          } else {
+            response = atkResult;
+          }
           break;
+        }
         case 'search_attack_patterns':
           response = searchAttackPatterns(db, args as { query: string; ecosystem?: string });
           break;
@@ -308,9 +365,23 @@ export function registerTools(server: Server, db: Db): void {
           break;
 
         // Signing & Attestation
-        case 'get_signing_pattern':
-          response = getSigningPattern(db, args as { pattern_id: string });
+        case 'get_signing_pattern': {
+          const signResult = getSigningPattern(db, args as { pattern_id: string });
+          if (signResult.results) {
+            response = {
+              ...signResult,
+              _citation: buildCitation(
+                signResult.results.id,
+                `${signResult.results.tool_name}: ${signResult.results.use_case}`,
+                'get_signing_pattern',
+                { pattern_id: signResult.results.id },
+              ),
+            };
+          } else {
+            response = signResult;
+          }
           break;
+        }
         case 'search_verification_methods':
           response = searchVerificationMethods(db, args as { query: string; ecosystem?: string });
           break;

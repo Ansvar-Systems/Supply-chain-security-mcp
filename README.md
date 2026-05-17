@@ -1,6 +1,51 @@
 # @ansvar/supply-chain-security-mcp
 
-[![npm version](https://img.shields.io/npm/v/@ansvar/supply-chain-security-mcp)](https://www.npmjs.com/package/@ansvar/supply-chain-security-mcp)
+<!-- ANSVAR-CTA-BEGIN -->
+> ### ▶ Try this MCP instantly via Ansvar Gateway
+> **50 free queries/day · no card required · OAuth signup at [ansvar.eu/gateway](https://ansvar.eu/gateway)**
+>
+> One endpoint, one OAuth signup, access from any MCP-compatible client.
+
+### Connect
+
+**Claude Code** (one line):
+
+```bash
+claude mcp add ansvar --transport http https://gateway.ansvar.eu/mcp
+```
+
+**Claude Desktop / Cursor** — add to `claude_desktop_config.json` (or `mcp.json`):
+
+```json
+{
+  "mcpServers": {
+    "ansvar": {
+      "type": "url",
+      "url": "https://gateway.ansvar.eu/mcp"
+    }
+  }
+}
+```
+
+**Claude.ai** — Settings → Connectors → Add custom connector → paste `https://gateway.ansvar.eu/mcp`
+
+First request opens an OAuth flow at [ansvar.eu/gateway](https://ansvar.eu/gateway). After signup, your client is bound to your account; tier (free / premium / team / company) determines fan-out, quota, and which downstream MCPs are reachable.
+
+---
+
+## Self-host this MCP
+
+You can also clone this repo and build the corpus yourself. The schema,
+fetcher, and tool implementations all live here. What is not in the repo is
+the pre-built database — TDM and standards-licensing constraints on the
+upstream sources mean we host the corpus on Ansvar infrastructure rather
+than redistribute it as a public artifact.
+
+Build your own: run this repo's ingestion script (entry-point varies per
+repo — typically `scripts/ingest.sh`, `npm run ingest`, or `make ingest`;
+check the repo root).
+<!-- ANSVAR-CTA-END -->
+
 
 Software supply chain risk intelligence MCP server. Provides structured reference data about SBOM standards (SPDX 2.3/3.0, CycloneDX 1.5/1.6), SLSA framework levels 1-4, supply chain regulations (EU Cyber Resilience Act, US EO 14028, NIST SSDF SP 800-218), MITRE ATT&CK supply chain attack techniques, artifact signing patterns (Sigstore, in-toto, Notary v2, GPG, TUF), and software composition risk assessment.
 
@@ -12,44 +57,23 @@ Built for the [Ansvar](https://ansvar.eu) threat modeling platform. Uses the [Mo
 
 Run directly with npx (stdio transport):
 
-```bash
-npx @ansvar/supply-chain-security-mcp
-```
-
 Or install as a dependency:
-
-```bash
-npm install @ansvar/supply-chain-security-mcp
-```
 
 ### Claude Desktop / Claude Code
 
-```json
-{
-  "mcpServers": {
-    "supply-chain-security": {
-      "command": "npx",
-      "args": ["-y", "@ansvar/supply-chain-security-mcp"]
-    }
-  }
-}
-```
-
 ### Cursor
-
-```json
-{
-  "mcpServers": {
-    "supply-chain-security": {
-      "command": "npx",
-      "args": ["-y", "@ansvar/supply-chain-security-mcp"]
-    }
-  }
-}
-```
 
 ---
 
+### Public Endpoint (Streamable HTTP)
+
+Connect from any MCP client (Claude Desktop, ChatGPT, Cursor, VS Code, GitHub Copilot):
+
+**Claude Code:**
+
+**Claude Desktop / Cursor** (`claude_desktop_config.json`):
+
+No authentication required. See [all Ansvar MCP endpoints](https://github.com/Ansvar-Systems/Ansvar-Architecture-Documentation/blob/main/docs/mcp-remote-access.md).
 ## What's in this MCP
 
 ### 50 SBOM Standard Fields
